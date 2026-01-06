@@ -1,1 +1,3 @@
-# DataViz_2026
+# Data Visualization for Social Scientists (Spring 2026)
+
+This course builds foundational skills in data visualization, emphasizing both conceptual principles and practical techniques. We begin by establishing core competencies in R, tidy data workflows, as well as the essentials of graphic design and data mapping. As the module progresses, we focus on representing amounts and proportions, visualizing uncertainty, and effectively communicating relationships and comparisons. Special attention is given to the use of themes and annotations to enhance interpretability. The final weeks explore strategies for visualizing complex data structures; including spatial, temporal, and textual information. Much of the learning will occur outside the classroom through hands-on practice with statistical software, critical analysis of existing visualizations, and iterative project work.
