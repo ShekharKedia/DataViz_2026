@@ -25,7 +25,7 @@ pkgTest <- function(pkg){
     }
 
 # Load any necessary packages
-lapply(c("tidyverse", "ggplot2", "ggridges", "tradestatistics"),  pkgTest)
+lapply(c("tidyverse", "ggplot2", "ggridges", "tradestatistics", "dplyr"),  pkgTest)
 
 
 # Set working directory for current folder
@@ -202,8 +202,6 @@ us_trade <- ots_create_tidy_data(
 # Filter US imports from China (2018-2020),
 # create a variable for log import values, 
 
-library(dplyr)
-
 us_imports_chn <- us_trade %>%
   filter(
     partner_iso == "CHN",
@@ -271,6 +269,7 @@ us_trade <- us_trade %>%
     )
   )
 
+unique(us_trade$goods_type)
 
 # For 2020 US imports:
 # What are the top 5 import partners by total value
@@ -285,7 +284,7 @@ top5_partners_2020 <- us_trade %>%
   slice_head(n = 5)
 
 # What are the average import value by 2-digit HS code for top 3 partners
-## What is means?: For the three biggest US import partners, 
+## What it means?: For the three biggest US import partners, 
 ##what is the typical import size in each broad product category?
 ## What is an HS code? HS = Harmonized System
 ## It’s an international product classification system.
@@ -356,7 +355,8 @@ electronics_growth <- electronics %>%
 
 # Rank partners by 2020 value AND growth rate
 electronics_rank <- electronics_growth %>%
-  filter(year == 2020) %>%
+  filter(year == 2020)  %>%
+  group_by(partner_name) %>%
   arrange(desc(total_imports), desc(yoy_growth)) 
 
 # Select & arrange top 10
